@@ -28,9 +28,9 @@ export function BasicTable() {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Código Pokemon</TableCell>
+            <TableCell>Mote</TableCell>
             <TableCell align="right">Código entrenador</TableCell>
-            <TableCell align="right">Mote</TableCell>
+            <TableCell align="right">Código Pokemon</TableCell>
             <TableCell align="right">Especie</TableCell>
             <TableCell align="right">Código Pokedex</TableCell>
           </TableRow>
@@ -42,10 +42,10 @@ export function BasicTable() {
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {pokemon.codigoPokemon}
+                {pokemon.mote}
               </TableCell>
               <TableCell align="right">{pokemon.codigoEntrenador}</TableCell>
-              <TableCell align="right">{pokemon.mote}</TableCell>
+              <TableCell align="right">{pokemon.codigoPokemon}</TableCell>
               <TableCell align="right">{pokemon.especie}</TableCell>
               <TableCell align="right">{pokemon.codigoPokedex}</TableCell>
             </TableRow>
