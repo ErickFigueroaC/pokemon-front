@@ -9,6 +9,8 @@ import Paper from '@mui/material/Paper';
 import { getAllPokemons } from '../services/PokemonService';
 
 export function BasicTable() {
+  const [pokemons, setPokemons] = useState([]);
+
   const fetchAllPokemon = () => {
     getAllPokemons().then((pokemons) => {
       console.log(pokemons);
@@ -16,8 +18,8 @@ export function BasicTable() {
   };
 
   useEffect(() => {
-    getAllPokemons().then((pokemons) => {
-      console.log(pokemons);
+    getAllPokemons().then((pokemonsResponse) => {
+      setPokemons(() => pokemonsResponse);
     });
   }, []);
 
@@ -34,17 +36,20 @@ export function BasicTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* {rows.map((row) => (
-            <TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+          {pokemons.map((pokemon) => (
+            <TableRow
+              key={pokemon.codigoPokemon}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
               <TableCell component="th" scope="row">
-                {row.name}
+                {pokemon.codigoPokemon}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{pokemon.codigoEntrenador}</TableCell>
+              <TableCell align="right">{pokemon.mote}</TableCell>
+              <TableCell align="right">{pokemon.especie}</TableCell>
+              <TableCell align="right">{pokemon.codigoPokedex}</TableCell>
             </TableRow>
-          ))} */}
+          ))}
         </TableBody>
       </Table>
     </TableContainer>
